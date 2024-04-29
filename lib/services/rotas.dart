@@ -94,29 +94,5 @@ class RotasService {
 }
 
 class Rotas {
-  static const String splash = '/splash';
   static const String home = '/';
-  static String profile = '/minha_conta';
-  static String settings = '/configuracoes';
-  static String story = '/story';
-  static String pedido = '/pedido';
-  static String pizza = '/pizza';
-  static String logoff = '/logoff';
-  static String carrinho = '/carrinho';
-  static String minhaConta = '/minha_conta';
-  static String meusPedidos = '/meus_pedidos';
-  static String notificacoes = '/notificacoes';
-  static String apagarConta = '/apagar_conta';
-  static String login = '/login';
-  static String checkout = '/checkout';
-  static String orderTempIdKey = 'orderTempId';
-  static String produtoIdKey = 'produtoId';
-  static String clientNameFormRoute = '/client-name-form';
-  static String closedConsumptionRoute = '/closed-consumption';
-  static String createAccountRoute = '/create-account';
-  static String informationRoute = '/information';
-  static String initErrorRoute = '/init-error';
-  static String orderEditRoute = '/order-edit';
-  static String recoveryPasswordRoute = '/recovery-password';
-  static String termsRoute = '/terms';
 }
