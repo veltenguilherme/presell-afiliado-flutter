@@ -1,9 +1,8 @@
-import 'package:flutter/widgets.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../models/components/layout_builder/_builder.dart';
-import '../../services/tema.dart';
 import '../widgets/_base/component_controller.dart';
 
 part 'layouts/large_layout.dart';
@@ -14,6 +13,11 @@ class HomeController extends ComponentController {
   LayoutBuilderModel smallLayout = LayoutBuilderModel();
   LayoutBuilderModel mediumLayout = LayoutBuilderModel();
   LayoutBuilderModel largeLayout = LayoutBuilderModel();
+
+  final Rx<Color> backgroundCor = Color.fromARGB(255, 49, 49, 49).obs;
+  final Rx<Color> tituloCor = Color.fromARGB(255, 219, 22, 88).obs;
+  final Rx<Color> textosCor = Colors.white.obs;
+  final Rx<Color> botaoCor = Colors.pink.obs;
 
   @override
   Future<void> initialize() async {
@@ -32,18 +36,12 @@ class HomeController extends ComponentController {
     _buildScrollListener();
   }
 
-  getBackgroundColor() => HexColor("#515151");
-
   getProdutoTitulo() => "HAPPY HAIR";
 
   getProdutoSubTitulo() => "Crescimento capilar acelerado!";
 
   getProdutoInfoAdicional() =>
       "Acesse o Site Oficial com 68% de Desconto\n* Frete Grátis";
-
-  getProdutoTituloCor() => HexColor("#FF3881");
-
-  getProdutoSubTituloCor() => tema.branco;
 
   getProdutoBotaoComprarTitulo() => "ACESSAR O SITE OFICIAL";
 

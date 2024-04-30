@@ -7,9 +7,11 @@ final tema = DiContainer.resolve<TemaService>();
 
 class TemaService {
   final vermelho = HexColor("#F13B3B");
+  final secondary75 = HexColor("#CCCFD2");
   final branco = Colors.white;
   final preto = Colors.black;
   final transparente = Colors.transparent;
+  final grey50 = HexColor("#FAFAFA");
 
   MaterialColor getMaterialColor(Color color) {
     final int red = color.red;

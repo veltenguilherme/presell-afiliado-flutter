@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../services/tema.dart';
 import '../spaces.dart';
 
 class Button extends StatelessWidget {
-  final Color color;
+  final Rx<Color>? color;
   final String title;
   final double width;
   final double height;
@@ -44,7 +45,7 @@ class Button extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => MaterialButton(
+  Widget build(BuildContext context) => Obx(() => MaterialButton(
       padding: EdgeInsets.zero,
       minWidth: width,
       height: height,
@@ -56,14 +57,14 @@ class Button extends StatelessWidget {
       hoverColor: Colors.transparent,
       focusColor: Colors.transparent,
       onPressed: () async => await onPressed.call(),
-      child: _buildInk());
+      child: _buildInk()));
 
   _buildInk() => gradiendColors == null
       ? Ink(
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color: color,
+            color: color?.value ?? Colors.red,
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           ),
           child: _buildTitle())

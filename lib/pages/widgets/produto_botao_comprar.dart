@@ -1,5 +1,6 @@
 import 'package:afiliado_vendas_flutter/pages/home/_controller.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../models/components/layout_builder/_builder.dart';
@@ -15,12 +16,12 @@ class ProdutoBotaoComprar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Button.buildDefault(
-      color: controller.getProdutoTituloCor(),
-      fontColor: controller.getProdutoSubTituloCor(),
+  Widget build(BuildContext context) => Obx(() => Button.buildDefault(
+      color: controller.botaoCor,
+      fontColor: controller.textosCor.value,
       title: controller.getProdutoBotaoComprarTitulo(),
       fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
       width: layoutBuilder.botaoComprarWidth ?? 50,
       height: layoutBuilder.botaoComprarHeight ?? 5.w,
-      onPressed: () => {});
+      onPressed: () => {}));
 }

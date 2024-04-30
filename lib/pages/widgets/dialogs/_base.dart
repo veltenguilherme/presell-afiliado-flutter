@@ -42,7 +42,7 @@ abstract class DialogBase {
           ));
 
   static buildButton(name, {Function? onPressed}) => Button(
-        color: tema.transparente,
+        color: tema.transparente.obs,
         fontColor: tema.preto,
         fontWeight: FontWeight.bold,
         fontSize: 14,

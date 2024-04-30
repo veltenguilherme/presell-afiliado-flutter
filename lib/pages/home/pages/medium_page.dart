@@ -23,7 +23,7 @@ class MHomePage extends Component<HomeController> {
   Widget buildContent(BuildContext context) => ReloadPageComponent(
       child: RemoveGlowEffect(
           child: Scaffold(
-              backgroundColor: controller.getBackgroundColor(),
+              backgroundColor: controller.backgroundCor.value,
               body: SafeArea(
                   minimum: EdgeInsets.only(top: 4.w),
                   child: Center(

@@ -1,5 +1,6 @@
 import 'package:afiliado_vendas_flutter/pages/home/_controller.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 import '../../models/components/layout_builder/_builder.dart';
 
@@ -14,10 +15,10 @@ class ProdutoTitulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      Text(controller.getProdutoTitulo(), style: _getStyle());
+      Obx(() => Text(controller.getProdutoTitulo(), style: _getStyle()));
 
   _getStyle() => TextStyle(
-      color: controller.getProdutoTituloCor(),
+      color: controller.tituloCor.value,
       fontSize: layoutBuilder.produtoTituloFontSize,
       fontWeight: FontWeight.bold);
 }

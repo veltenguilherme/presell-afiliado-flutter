@@ -15,6 +15,12 @@ dependencies:
   hexcolor:
   cupertino_icons: ^1.0.6
   flutter_keyboard_visibility:  
+  flutter_svg:  
+  intl:
+  extended_masked_text:  
+  delayed_widget:
+  web_color_picker:
+  image_picker_web:
 
 dev_dependencies:
   flutter_test:
