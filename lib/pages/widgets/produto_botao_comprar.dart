@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../main.dart';
 import '../../models/components/layout_builder/_builder.dart';
 import 'dialogs/button.dart';
 
@@ -23,15 +24,15 @@ class ProdutoBotaoComprar extends StatelessWidget {
       ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
 
   _buildChild() => EditarBotaoComponente(
-      corBotao: controller.botaoCor,
-      corTexto: controller.botaoTextoCor,
-      texto: controller.botaoTexto,
-      linkAfiliado: controller.linkAfiliado,
+      corBotao: configuracao.botaoCor!,
+      corTexto: configuracao.botaoTextoCor!,
+      texto: configuracao.botaoTexto!,
+      linkAfiliado: configuracao.linkAfiliado!,
       child: IgnorePointer(
           child: Obx(() => Button.buildDefault(
-              color: controller.botaoCor,
-              fontColor: controller.botaoTextoCor.value,
-              title: controller.botaoTexto.value,
+              color: configuracao.botaoCor,
+              fontColor: configuracao.botaoTextoCor!.value,
+              title: configuracao.botaoTexto!.value,
               fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
               width: layoutBuilder.botaoComprarWidth ?? 50,
               height: layoutBuilder.botaoComprarHeight ?? 5.w,

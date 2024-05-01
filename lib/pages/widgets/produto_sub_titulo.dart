@@ -2,6 +2,7 @@ import 'package:afiliado_vendas_flutter/pages/home/_controller.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../main.dart';
 import '../../models/components/layout_builder/_builder.dart';
 import 'editar_texto/component.dart';
 
@@ -21,12 +22,13 @@ class ProdutoSubTitulo extends StatelessWidget {
       ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
 
   _buildChild() => EditarTextoComponente(
-      cor: controller.subTituloCor,
-      texto: controller.subTitulo,
-      child: Obx(() => Text(controller.subTitulo.value, style: _getStyle())));
+      cor: configuracao.subTituloCor!,
+      texto: configuracao.subTitulo!,
+      child:
+          Obx(() => Text(configuracao.subTitulo!.value, style: _getStyle())));
 
   _getStyle() => TextStyle(
-      color: controller.subTituloCor.value,
+      color: configuracao.subTituloCor!.value,
       fontSize: layoutBuilder.produtoSubTituloFontSize,
       fontWeight: FontWeight.w300);
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../main.dart';
 import '../../models/components/layout_builder/_builder.dart';
 import 'editar_texto/component.dart';
 
@@ -22,12 +23,12 @@ class ProdutoTitulo extends StatelessWidget {
       ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
 
   _buildChild() => EditarTextoComponente(
-      cor: controller.tituloCor,
-      texto: controller.titulo,
-      child: Obx(() => Text(controller.titulo.value, style: _getStyle())));
+      cor: configuracao.tituloCor!,
+      texto: configuracao.titulo!,
+      child: Obx(() => Text(configuracao.titulo!.value, style: _getStyle())));
 
   _getStyle() => TextStyle(
-      color: controller.tituloCor.value,
+      color: configuracao.tituloCor!.value,
       fontSize: layoutBuilder.produtoTituloFontSize,
       fontWeight: FontWeight.bold);
 }

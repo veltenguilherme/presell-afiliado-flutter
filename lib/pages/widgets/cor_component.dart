@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 import 'package:web_color_picker/web_color_picker.dart';
 
 import '../../services/tema.dart';
+import '_base/component_controller.dart';
 
 class CorComponent extends StatelessWidget {
   final String titulo;
   final Rx<Color> cor;
-  const CorComponent({
+  final Debounce debouncer = Debounce(milliseconds: 2500);
+
+  CorComponent({
     super.key,
     required this.titulo,
     required this.cor,

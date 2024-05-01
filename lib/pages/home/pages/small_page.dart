@@ -1,3 +1,4 @@
+import 'package:afiliado_vendas_flutter/pages/widgets/produto_botao_publicar.dart';
 import 'package:afiliado_vendas_flutter/pages/widgets/reload_page.dart';
 import 'package:afiliado_vendas_flutter/pages/widgets/remove_glow_effect.dart';
 import 'package:afiliado_vendas_flutter/pages/widgets/spaces.dart';
@@ -5,6 +6,7 @@ import 'package:afiliado_vendas_flutter/pages/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../../main.dart';
 import '../../widgets/_base/component.dart';
 import '../../widgets/cor_component.dart';
 import '../../widgets/produto_botao_comprar.dart';
@@ -24,7 +26,7 @@ class SHomePage extends Component<HomeController> {
   Widget buildContent(BuildContext context) => ReloadPageComponent(
       child: RemoveGlowEffect(
           child: Obx(() => Scaffold(
-              backgroundColor: controller.backgroundCor.value,
+              backgroundColor: configuracao.backgroundCor!.value,
               body: SafeArea(
                   child: SingleChildScrollView(
                       padding: EdgeInsets.only(top: 18.w),
@@ -39,14 +41,20 @@ class SHomePage extends Component<HomeController> {
                           _buildProdutoFoto(),
                           Spaces(size: 1.w),
                           _buildBotaoComprar(),
+                          Spaces(size: 15.w),
+                          _buildBotaoPublicarSite(),
                         ]),
                       )))))));
 
-  _buildBackgroundColorPicker() =>
-      CorComponent(cor: controller.backgroundCor, titulo: "Cor de fundo");
+  _buildBackgroundColorPicker() => CorComponent(
+        cor: configuracao.backgroundCor!,
+        titulo: "Cor de fundo",
+      );
 
   _buildProdutoTitulo() => ProdutoTitulo(
-      controller: controller, layoutBuilder: controller.smallLayout);
+        controller: controller,
+        layoutBuilder: controller.smallLayout,
+      );
 
   _buildProdutoSubTitulo() => ProdutoSubTitulo(
         controller: controller,
@@ -58,12 +66,17 @@ class SHomePage extends Component<HomeController> {
         layoutBuilder: controller.smallLayout,
       );
 
+  _buildProdutoFoto() => ProdutoFoto(
+        controller: controller,
+        layoutBuilder: controller.smallLayout,
+      );
+
   _buildBotaoComprar() => ProdutoBotaoComprar(
         controller: controller,
         layoutBuilder: controller.smallLayout,
       );
 
-  _buildProdutoFoto() => ProdutoFoto(
+  _buildBotaoPublicarSite() => ProdutoBotaoPublicar(
         controller: controller,
         layoutBuilder: controller.smallLayout,
       );

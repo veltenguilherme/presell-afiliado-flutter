@@ -3,8 +3,10 @@ import 'package:afiliado_vendas_flutter/pages/widgets/remove_glow_effect.dart';
 import 'package:afiliado_vendas_flutter/pages/widgets/spaces.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../main.dart';
 import '../../widgets/_base/component.dart';
 import '../../widgets/produto_botao_comprar.dart';
 import '../../widgets/produto_foto.dart';
@@ -22,9 +24,9 @@ class MHomePage extends Component<HomeController> {
   @override
   Widget buildContent(BuildContext context) => ReloadPageComponent(
       child: RemoveGlowEffect(
-          child: Scaffold(
+          child: Obx(() => Scaffold(
               extendBodyBehindAppBar: true,
-              backgroundColor: controller.backgroundCor.value,
+              backgroundColor: configuracao.backgroundCor!.value,
               body: SafeArea(
                   child: SingleChildScrollView(
                       padding: EdgeInsets.only(top: 3.w),
@@ -38,7 +40,7 @@ class MHomePage extends Component<HomeController> {
                           _buildBotaoComprar(),
                           _buildProdutoFoto(),
                         ]),
-                      ))))));
+                      )))))));
 
   _buildProdutoTitulo() => ProdutoTitulo(
         controller: controller,

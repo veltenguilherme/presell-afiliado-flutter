@@ -21,6 +21,7 @@ dependencies:
   delayed_widget:
   web_color_picker:
   image_picker_web:
+  shared_preferences:    
 
 dev_dependencies:
   flutter_test:

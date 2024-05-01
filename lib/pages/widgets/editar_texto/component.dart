@@ -41,7 +41,6 @@ class EditarTextoComponente extends Component<EditarTextoComponentController> {
       widgetMessage: _buildTextoECor(),
       cor: Colors.grey,
       onPressed: () => {
-            print("opa"),
             Navigator.pop(Get.context!),
           });
 
@@ -52,8 +51,10 @@ class EditarTextoComponente extends Component<EditarTextoComponentController> {
               width: 60.w,
               child: TextFieldBorderComponent(
                   model: controller.campoTexto,
-                  onChanged: (value) => controller
-                      .texto(value.isEmpty ? controller.texto.value : value))),
+                  onChanged: (value) => {
+                        controller.texto(
+                            value.isEmpty ? controller.texto.value : value),
+                      })),
           CorComponent(cor: cor, titulo: "Cor")
         ],
       );

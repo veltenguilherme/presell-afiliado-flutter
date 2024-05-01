@@ -3,6 +3,7 @@ import 'package:afiliado_vendas_flutter/pages/widgets/editar_texto/component.dar
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../main.dart';
 import '../../models/components/layout_builder/_builder.dart';
 
 class ProdutoInfoAdicional extends StatelessWidget {
@@ -21,13 +22,13 @@ class ProdutoInfoAdicional extends StatelessWidget {
       ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
 
   _buildChild() => EditarTextoComponente(
-      cor: controller.infoAdicionalCor,
-      texto: controller.infoAdicional,
-      child:
-          Obx(() => Text(controller.infoAdicional.value, style: _getStyle())));
+      cor: configuracao.infoAdicionalCor!,
+      texto: configuracao.infoAdicional!,
+      child: Obx(
+          () => Text(configuracao.infoAdicional!.value, style: _getStyle())));
 
   _getStyle() => TextStyle(
-      color: controller.infoAdicionalCor.value,
+      color: configuracao.infoAdicionalCor!.value,
       fontSize: layoutBuilder.produtoInfoAdicionalFontSize,
       fontWeight: FontWeight.w300);
 }

@@ -1,3 +1,4 @@
+import 'package:afiliado_vendas_flutter/services/configuracoes.dart';
 import 'package:afiliado_vendas_flutter/services/imagens.dart';
 import 'package:afiliado_vendas_flutter/services/rotas.dart';
 
@@ -13,5 +14,6 @@ class Startup {
     DiContainer.addSingleton(builder: () => TemaService());
     DiContainer.addSingleton(builder: () => RotasService());
     DiContainer.addSingleton(builder: () => ImagensService());
+    DiContainer.addSingleton(builder: () => ConfiguracoesServico());
   }
 }
