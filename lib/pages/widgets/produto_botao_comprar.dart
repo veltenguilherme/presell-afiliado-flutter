@@ -26,13 +26,12 @@ class ProdutoBotaoComprar extends StatelessWidget {
           : _buildChild();
 
   _buildChild() => configuracao.releaseMode!.isFalse
-      ? IgnorePointer(
-          child: EditarBotaoComponente(
-              corBotao: configuracao.botaoCor!,
-              corTexto: configuracao.botaoTextoCor!,
-              texto: configuracao.botaoTexto!,
-              linkAfiliado: configuracao.linkAfiliado!,
-              child: _buildBotao()))
+      ? EditarBotaoComponente(
+          corBotao: configuracao.botaoCor!,
+          corTexto: configuracao.botaoTextoCor!,
+          texto: configuracao.botaoTexto!,
+          linkAfiliado: configuracao.linkAfiliado!,
+          child: IgnorePointer(child: _buildBotao()))
       : Container(
           padding:
               EdgeInsets.only(top: 1.w, bottom: 1.w, left: 4.w, right: 4.w),
