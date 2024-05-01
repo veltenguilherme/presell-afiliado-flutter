@@ -1,5 +1,6 @@
 import 'package:afiliado_vendas_flutter/services/rotas.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,6 +18,7 @@ Future main() async {
                           ScrollBehaviorComponent().copyWith(scrollbars: false),
                       debugShowCheckedModeBanner: false,
                       initialRoute: Rotas.home,
+                      title: dotenv.env['APP_NOME'].toString(),
                       getPages: rotas.getPages(),
                     ))))
       });

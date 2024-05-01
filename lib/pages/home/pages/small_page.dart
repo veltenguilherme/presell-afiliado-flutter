@@ -9,6 +9,7 @@ import 'package:sizer/sizer.dart';
 import '../../../main.dart';
 import '../../widgets/_base/component.dart';
 import '../../widgets/cor_component.dart';
+import '../../widgets/layout_default_botao.dart';
 import '../../widgets/produto_botao_comprar.dart';
 import '../../widgets/produto_foto.dart';
 import '../../widgets/produto_info_adicional.dart';
@@ -32,7 +33,13 @@ class SHomePage extends Component<HomeController> {
                       padding: EdgeInsets.only(top: 18.w),
                       child: Center(
                         child: Column(children: [
-                          _buildBackgroundColorPicker(),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                _buildBackgroundColorPicker(),
+                                Spaces(size: 2.w),
+                                _buildBotaoLayoutDefault(),
+                              ]),
                           Spaces(size: 1.w),
                           _buildProdutoTitulo(),
                           _buildProdutoSubTitulo(),
@@ -49,6 +56,11 @@ class SHomePage extends Component<HomeController> {
   _buildBackgroundColorPicker() => CorComponent(
         cor: configuracao.backgroundCor!,
         titulo: "Cor de fundo",
+      );
+
+  _buildBotaoLayoutDefault() => LayoutDefaultBotaoComponent(
+        controller: controller,
+        layoutBuilder: controller.smallLayout,
       );
 
   _buildProdutoTitulo() => ProdutoTitulo(

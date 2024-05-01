@@ -21,7 +21,10 @@ dependencies:
   delayed_widget:
   web_color_picker:
   image_picker_web:
-  shared_preferences:    
+  shared_preferences:  
+  flutter_launcher_icons: 
+  flutter_dotenv:
+  url_launcher: ^6.1.10     
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +35,18 @@ flutter:
   uses-material-design: true
 
 assets:    
-    - assets/                
-
+  - .env
+  - assets/            
+  - assets/png/ 
   
+
+flutter_icons:
+  web:
+    generate: true
+    image_path: "assets/png/ic_launcher.png"    
+  windows:
+    generate: true
+    image_path: "assets/png/ic_launcher.png"
+    icon_size: 48 
+ 
+

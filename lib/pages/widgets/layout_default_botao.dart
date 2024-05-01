@@ -1,5 +1,4 @@
 import 'package:afiliado_vendas_flutter/pages/home/_controller.dart';
-import 'package:afiliado_vendas_flutter/pages/widgets/dialogs/progress_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -9,11 +8,11 @@ import '../../models/components/layout_builder/_builder.dart';
 import 'dialogs/button.dart';
 import 'none.dart';
 
-class ProdutoBotaoPublicar extends StatelessWidget {
+class LayoutDefaultBotaoComponent extends StatelessWidget {
   final HomeController controller;
   final LayoutBuilderModel layoutBuilder;
 
-  const ProdutoBotaoPublicar({
+  const LayoutDefaultBotaoComponent({
     super.key,
     required this.controller,
     required this.layoutBuilder,
@@ -22,16 +21,12 @@ class ProdutoBotaoPublicar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => configuracao.releaseMode!.isFalse
       ? Button.buildDefault(
-          color: Colors.green.obs,
+          color: Colors.blue.obs,
           fontColor: Colors.white,
-          title: "Publicar",
-          fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
-          width: 35,
-          height: layoutBuilder.botaoComprarHeight ?? 5.w,
-          onPressed: () => progressDialog.tryRun(
-              context,
-              () async => await controller
-                  .publicarSite()
-                  .whenComplete(() => progressDialog.closeDialog())))
+          title: "Carregar Presell Padrão",
+          fontSize: 3.w,
+          width: 45,
+          height: 8.w,
+          onPressed: () => controller.carregarLayoutPadrao())
       : None();
 }

@@ -2,8 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../services/tema.dart';
+import 'package:get/get_rx/get_rx.dart';
 
 class Configuracao {
   Rx<Color>? backgroundCor;
@@ -23,37 +22,52 @@ class Configuracao {
   RxString? linkAfiliado;
   Rx<Color>? botaoCor;
   Rx<Color>? botaoTextoCor;
+  RxBool? releaseMode;
 
-  Configuracao({
-    this.backgroundCor,
-    this.titulo,
-    this.tituloCor,
-    this.subTitulo,
-    this.subTituloCor,
-    this.infoAdicional,
-    this.infoAdicionalCor,
-    this.produtoFoto,
-    this.botaoTexto,
-    this.linkAfiliado,
-    this.botaoCor,
-    this.botaoTextoCor,
-  }) {
-    this.backgroundCor ??= Color.fromARGB(255, 49, 49, 49).obs;
-    this.titulo ??= "HAPPY HAIR".obs;
-    this.tituloCor ??= Color.fromARGB(255, 219, 22, 88).obs;
+  static const backgroundCorDefault = Color.fromARGB(255, 49, 49, 49);
+  static const tituloDefault = "HAPPY HAIR";
+  static const tituloCorDefault = Color.fromARGB(255, 219, 22, 88);
+  static const subTituloDefault = "Crescimento capilar acelerado!";
+  static const subTituloCorDefault = Colors.white;
+  static const infoAdicionalDefault =
+      "Acesse o Site Oficial com 68% de Desconto.";
+  static const infoAdicionarCorDefault = Colors.white;
+  static const botaoTextoDefault = "ACESSAR O SITE OFICIAL";
+  static const botaoCorDefault = Colors.pink;
+  static const botaoTextoCorDefault = Colors.white;
 
-    this.subTitulo ??= "Crescimento capilar acelerado!".obs;
-    this.subTituloCor ??= tema.branco.obs;
+  Configuracao(
+      {this.backgroundCor,
+      this.titulo,
+      this.tituloCor,
+      this.subTitulo,
+      this.subTituloCor,
+      this.infoAdicional,
+      this.infoAdicionalCor,
+      this.produtoFoto,
+      this.botaoTexto,
+      this.linkAfiliado,
+      this.botaoCor,
+      this.botaoTextoCor,
+      this.releaseMode}) {
+    this.backgroundCor ??= backgroundCorDefault.obs;
+    this.titulo ??= tituloDefault.obs;
+    this.tituloCor ??= tituloCorDefault.obs;
 
-    this.infoAdicional ??= "Acesse o Site Oficial com 68% de Desconto.".obs;
-    this.infoAdicionalCor ??= tema.branco.obs;
+    this.subTitulo ??= subTituloDefault.obs;
+    this.subTituloCor ??= subTituloCorDefault.obs;
+
+    this.infoAdicional ??= infoAdicionalDefault.obs;
+    this.infoAdicionalCor ??= infoAdicionarCorDefault.obs;
 
     this.produtoFoto ??= Uint8List(0).obs;
 
-    this.botaoTexto ??= "ACESSAR O SITE OFICIAL".obs;
-    this.botaoCor ??= Colors.pink.obs;
-    this.botaoTextoCor ??= tema.branco.obs;
+    this.botaoTexto ??= botaoTextoDefault.obs;
+    this.botaoCor ??= botaoCorDefault.obs;
+    this.botaoTextoCor ??= botaoTextoCorDefault.obs;
     this.linkAfiliado ??= "".obs;
+
+    this.releaseMode ??= false.obs;
   }
 
   factory Configuracao.fromJson(Map<String, dynamic> json) => Configuracao(
@@ -68,6 +82,7 @@ class Configuracao {
         botaoTexto: (json['botaoTexto'] as String).obs,
         botaoCor: (Color(json['botaoCor'])).obs,
         botaoTextoCor: (Color(json['botaoTextoCor'])).obs,
+        releaseMode: (json['releaseMode'] as bool).obs,
       );
 
   Map<String, dynamic> toJson() => {
@@ -82,5 +97,6 @@ class Configuracao {
         'botaoTexto': botaoTexto!.value,
         'botaoCor': botaoCor!.value.value,
         'botaoTextoCor': botaoTextoCor!.value.value,
+        'releaseMode': releaseMode!.value,
       };
 }

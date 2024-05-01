@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../pages/home/pages/large_page.dart';
 import '../pages/home/pages/medium_page.dart';
@@ -91,6 +92,15 @@ class RotasService {
         mBody: mediuBody,
         lBody: largeBody,
       );
+
+  Future<void> launchURL(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Url inválida: $url';
+    }
+  }
 }
 
 class Rotas {

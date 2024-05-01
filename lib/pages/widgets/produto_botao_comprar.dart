@@ -21,20 +21,29 @@ class ProdutoBotaoComprar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
+      ignorePointer && configuracao.releaseMode!.isFalse
+          ? IgnorePointer(child: _buildChild())
+          : _buildChild();
 
-  _buildChild() => EditarBotaoComponente(
-      corBotao: configuracao.botaoCor!,
-      corTexto: configuracao.botaoTextoCor!,
-      texto: configuracao.botaoTexto!,
-      linkAfiliado: configuracao.linkAfiliado!,
-      child: IgnorePointer(
-          child: Obx(() => Button.buildDefault(
-              color: configuracao.botaoCor,
-              fontColor: configuracao.botaoTextoCor!.value,
-              title: configuracao.botaoTexto!.value,
-              fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
-              width: layoutBuilder.botaoComprarWidth ?? 50,
-              height: layoutBuilder.botaoComprarHeight ?? 5.w,
-              onPressed: () => {}))));
+  _buildChild() => configuracao.releaseMode!.isFalse
+      ? IgnorePointer(
+          child: EditarBotaoComponente(
+              corBotao: configuracao.botaoCor!,
+              corTexto: configuracao.botaoTextoCor!,
+              texto: configuracao.botaoTexto!,
+              linkAfiliado: configuracao.linkAfiliado!,
+              child: _buildBotao()))
+      : Container(
+          padding:
+              EdgeInsets.only(top: 1.w, bottom: 1.w, left: 4.w, right: 4.w),
+          child: _buildBotao());
+
+  _buildBotao() => Obx(() => Button.buildDefault(
+      color: configuracao.botaoCor,
+      fontColor: configuracao.botaoTextoCor!.value,
+      title: configuracao.botaoTexto!.value,
+      fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
+      width: layoutBuilder.botaoComprarWidth ?? 50,
+      height: layoutBuilder.botaoComprarHeight ?? 5.w,
+      onPressed: () => controller.irParaSiteAfiliado()));
 }

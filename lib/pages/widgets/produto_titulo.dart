@@ -20,7 +20,9 @@ class ProdutoTitulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
+      ignorePointer || configuracao.releaseMode!.isTrue
+          ? IgnorePointer(child: _buildChild())
+          : _buildChild();
 
   _buildChild() => EditarTextoComponente(
       cor: configuracao.tituloCor!,

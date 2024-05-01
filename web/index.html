@@ -15,7 +15,8 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <!-- <base href="$FLUTTER_BASE_HREF">] -->
+  <!-- <base href="./"> -->
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -30,12 +31,8 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>afiliado_vendas_flutter</title>
+  <title>Happy Hair</title>
   <link rel="manifest" href="manifest.json">
-
-  <div class="flex h-screen animate-pulse flex-col place-content-center place-items-center">
-    <div>Carregando componentes...</div>
-  </div>
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -80,12 +77,12 @@
 </head>
 
 <body>
-  <script>
+  <script defer>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
+          serviceWorkerVersion: null,
         },
         onEntrypointLoaded: function (engineInitializer) {
           engineInitializer.initializeEngine().then(function (appRunner) {

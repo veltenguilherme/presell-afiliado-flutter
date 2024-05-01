@@ -20,7 +20,9 @@ class ProdutoFoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      ignorePointer ? IgnorePointer(child: _buildChild()) : _buildChild();
+      ignorePointer || configuracao.releaseMode!.isTrue
+          ? IgnorePointer(child: _buildChild())
+          : _buildChild();
 
   _buildChild() => EditarFotoComponente(
       foto: configuracao.produtoFoto,
