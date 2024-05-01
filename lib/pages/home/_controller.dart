@@ -1,8 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../models/components/layout_builder/_builder.dart';
+import '../../services/tema.dart';
 import '../widgets/_base/component_controller.dart';
 
 part 'layouts/large_layout.dart';
@@ -15,9 +18,23 @@ class HomeController extends ComponentController {
   LayoutBuilderModel largeLayout = LayoutBuilderModel();
 
   final Rx<Color> backgroundCor = Color.fromARGB(255, 49, 49, 49).obs;
+
+  final RxString titulo = "HAPPY HAIR".obs;
   final Rx<Color> tituloCor = Color.fromARGB(255, 219, 22, 88).obs;
-  final Rx<Color> textosCor = Colors.white.obs;
+
+  final RxString subTitulo = "Crescimento capilar acelerado!".obs;
+  final Rx<Color> subTituloCor = tema.branco.obs;
+
+  final RxString infoAdicional =
+      "Acesse o Site Oficial com 68% de Desconto.".obs;
+  final Rx<Color> infoAdicionalCor = tema.branco.obs;
+
+  final Rx<Uint8List> produtoFoto = Uint8List(0).obs;
+
+  final RxString botaoTexto = "ACESSAR O SITE OFICIAL".obs;
+  final RxString linkAfiliado = "".obs;
   final Rx<Color> botaoCor = Colors.pink.obs;
+  final Rx<Color> botaoTextoCor = tema.branco.obs;
 
   @override
   Future<void> initialize() async {
@@ -35,15 +52,6 @@ class HomeController extends ComponentController {
 
     _buildScrollListener();
   }
-
-  getProdutoTitulo() => "HAPPY HAIR";
-
-  getProdutoSubTitulo() => "Crescimento capilar acelerado!";
-
-  getProdutoInfoAdicional() =>
-      "Acesse o Site Oficial com 68% de Desconto\n* Frete Grátis";
-
-  getProdutoBotaoComprarTitulo() => "ACESSAR O SITE OFICIAL";
 
   _buildScrollListener() {
     smallLayout.scrollController!

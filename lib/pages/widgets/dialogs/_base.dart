@@ -16,14 +16,14 @@ abstract class DialogBase {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "AVISO",
+              "",
               style: TextStyle(
                   color: tema.branco,
                   fontSize: 15,
                   fontWeight: FontWeight.bold),
             ),
             Icon(
-              Icons.warning,
+              Icons.change_circle,
               color: tema.branco,
               size: 30,
             ),

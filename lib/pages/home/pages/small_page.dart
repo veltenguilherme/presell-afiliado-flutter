@@ -26,45 +26,24 @@ class SHomePage extends Component<HomeController> {
           child: Obx(() => Scaffold(
               backgroundColor: controller.backgroundCor.value,
               body: SafeArea(
-                  minimum: EdgeInsets.only(top: 18.w),
-                  child: Center(
-                    child: Column(children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(children: [
-                              _buildBackgroundColorPicker(),
-                              Spaces(size: 1.w),
-                              _buildTextosColorPicker(),
-                            ]),
-                            Spaces(size: 1.w),
-                            Column(children: [
-                              _buildTituloColorPicker(),
-                              Spaces(size: 1.w),
-                              _buildBotaoColorPicker(),
-                            ])
-                          ]),
-                      _buildProdutoTitulo(),
-                      _buildProdutoSubTitulo(),
-                      Spaces(size: 4.w),
-                      _buildProdutoInfoAdicional(),
-                      _buildProdutoFoto(),
-                      Spaces(size: 1.w),
-                      _buildBotaoComprar(),
-                    ]),
-                  ))))));
+                  child: SingleChildScrollView(
+                      padding: EdgeInsets.only(top: 18.w),
+                      child: Center(
+                        child: Column(children: [
+                          _buildBackgroundColorPicker(),
+                          Spaces(size: 1.w),
+                          _buildProdutoTitulo(),
+                          _buildProdutoSubTitulo(),
+                          Spaces(size: 4.w),
+                          _buildProdutoInfoAdicional(),
+                          _buildProdutoFoto(),
+                          Spaces(size: 1.w),
+                          _buildBotaoComprar(),
+                        ]),
+                      )))))));
 
   _buildBackgroundColorPicker() =>
       CorComponent(cor: controller.backgroundCor, titulo: "Cor de fundo");
-
-  _buildTextosColorPicker() =>
-      CorComponent(titulo: "Cor dos textos", cor: controller.textosCor);
-
-  _buildTituloColorPicker() =>
-      CorComponent(cor: controller.tituloCor, titulo: "Cor do título");
-
-  _buildBotaoColorPicker() =>
-      CorComponent(titulo: "Cor do botão", cor: controller.botaoCor);
 
   _buildProdutoTitulo() => ProdutoTitulo(
       controller: controller, layoutBuilder: controller.smallLayout);

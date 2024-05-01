@@ -25,46 +25,52 @@ class LHomePage extends Component<HomeController> {
           child: Scaffold(
               backgroundColor: controller.backgroundCor.value,
               body: SafeArea(
-                  minimum: EdgeInsets.all(4.5.w),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              _buildProdutoTitulo(),
-                              _buildProdutoSubTitulo(),
-                              Spaces(size: 4.w),
-                              _buildProdutoInfoAdicional(),
-                              Spaces(size: 1.w),
-                              _buildBotaoComprar(),
-                            ]),
-                        _buildProdutoFoto(),
-                      ])))));
+                  child: SingleChildScrollView(
+                      padding: EdgeInsets.only(top: 10.w),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  _buildProdutoTitulo(),
+                                  _buildProdutoSubTitulo(),
+                                  Spaces(size: 4.w),
+                                  _buildProdutoInfoAdicional(),
+                                  Spaces(size: 1.w),
+                                  _buildBotaoComprar(),
+                                ]),
+                            _buildProdutoFoto(),
+                          ]))))));
 
   _buildProdutoTitulo() => ProdutoTitulo(
         controller: controller,
         layoutBuilder: controller.largeLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoSubTitulo() => ProdutoSubTitulo(
         controller: controller,
         layoutBuilder: controller.largeLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoInfoAdicional() => ProdutoInfoAdicional(
         controller: controller,
         layoutBuilder: controller.largeLayout,
+        ignorePointer: true,
       );
 
   _buildBotaoComprar() => ProdutoBotaoComprar(
         controller: controller,
         layoutBuilder: controller.largeLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoFoto() => ProdutoFoto(
         controller: controller,
         layoutBuilder: controller.largeLayout,
+        ignorePointer: true,
       );
 }

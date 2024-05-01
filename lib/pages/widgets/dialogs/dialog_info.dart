@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../services/tema.dart';
-import '../touch_to_pop.dart';
 import '_base.dart';
 
 class DialogInfo {
@@ -10,8 +9,9 @@ class DialogInfo {
     BuildContext? context,
     message,
     widgetMessage,
-    String botaoFecharTexto = "FECHAR",
+    String botaoTexto = "ALTERAR",
     Color? cor,
+    onPressed,
   }) =>
       showDialog<void>(
           context: context ?? Get.context!,
@@ -22,23 +22,22 @@ class DialogInfo {
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero),
                   children: <Widget>[
-                    TouchToPop(
-                        child: Column(children: [
+                    Column(children: [
                       Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            DialogBase.buildHeader(cor),
+                            // DialogBase.buildHeader(cor),
                             DialogBase.buildBody(
                               message: message,
                               widgetMessage: widgetMessage,
                             ),
-                            _buildButtons(botaoFecharTexto),
+                            // _buildButtons(botaoTexto, onPressed),
                           ])
-                    ]))
+                    ])
                   ]));
 
-  static _buildButtons(botaoFecharTexto) => Container(
-      padding: const EdgeInsets.only(right: 2),
-      child: DialogBase.buildButton(botaoFecharTexto));
+  // static _buildButtons(botaoTexto, onPressed) => Container(
+  //     padding: const EdgeInsets.only(right: 2),
+  //     child: DialogBase.buildButton(botaoTexto, onPressed: onPressed));
 }

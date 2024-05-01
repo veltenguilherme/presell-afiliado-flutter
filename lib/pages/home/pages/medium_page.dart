@@ -23,43 +23,50 @@ class MHomePage extends Component<HomeController> {
   Widget buildContent(BuildContext context) => ReloadPageComponent(
       child: RemoveGlowEffect(
           child: Scaffold(
+              extendBodyBehindAppBar: true,
               backgroundColor: controller.backgroundCor.value,
               body: SafeArea(
-                  minimum: EdgeInsets.only(top: 4.w),
-                  child: Center(
-                    child: Column(children: [
-                      _buildProdutoTitulo(),
-                      _buildProdutoSubTitulo(),
-                      Spaces(size: 8.w),
-                      _buildProdutoInfoAdicional(),
-                      Spaces(size: 1.w),
-                      _buildBotaoComprar(),
-                      _buildProdutoFoto(),
-                    ]),
-                  )))));
+                  child: SingleChildScrollView(
+                      padding: EdgeInsets.only(top: 3.w),
+                      child: Center(
+                        child: Column(children: [
+                          _buildProdutoTitulo(),
+                          _buildProdutoSubTitulo(),
+                          Spaces(size: 8.w),
+                          _buildProdutoInfoAdicional(),
+                          Spaces(size: 1.w),
+                          _buildBotaoComprar(),
+                          _buildProdutoFoto(),
+                        ]),
+                      ))))));
 
   _buildProdutoTitulo() => ProdutoTitulo(
         controller: controller,
         layoutBuilder: controller.mediumLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoSubTitulo() => ProdutoSubTitulo(
         controller: controller,
         layoutBuilder: controller.mediumLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoInfoAdicional() => ProdutoInfoAdicional(
         controller: controller,
         layoutBuilder: controller.mediumLayout,
+        ignorePointer: true,
       );
 
   _buildBotaoComprar() => ProdutoBotaoComprar(
         controller: controller,
         layoutBuilder: controller.mediumLayout,
+        ignorePointer: true,
       );
 
   _buildProdutoFoto() => ProdutoFoto(
         controller: controller,
         layoutBuilder: controller.mediumLayout,
+        ignorePointer: true,
       );
 }

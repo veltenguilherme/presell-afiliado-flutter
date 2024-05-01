@@ -47,10 +47,9 @@ extension ClearButton on FieldController {
       onClear?.call();
       return;
     }
-
-    model.value.focusNode.requestFocus();
     model.value.clear();
     model.value.valid = model.value.isValid();
+    model.value.focusNode.requestFocus();
 
     if (model.value.readOnly) {
       model.value.focusNode.unfocus();
