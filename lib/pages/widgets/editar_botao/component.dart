@@ -61,8 +61,8 @@ class EditarBotaoComponente extends Component<EditarBotaoController> {
                 width: 58.w,
                 child: TextFieldBorderComponent(
                     model: controller.linkAfiliado,
-                    onChanged: (value) => controller.texto(
-                        value.isEmpty ? controller.linkAfiliado.value : value)))
+                    onChanged: (value) => linkAfiliado(
+                        value.isEmpty ? linkAfiliado.value : value)))
           ]),
           Column(children: [
             CorComponent(cor: corTexto, titulo: "Texto"),

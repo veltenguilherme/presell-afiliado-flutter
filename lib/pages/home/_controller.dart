@@ -51,4 +51,6 @@ class HomeController extends ComponentController {
     else
       layout.mostrarBotaoResetScroll!(false);
   }
+
+  publicarSite() {}
 }

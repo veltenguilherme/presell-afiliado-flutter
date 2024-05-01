@@ -24,5 +24,5 @@ class ProdutoBotaoPublicar extends StatelessWidget {
       fontSize: layoutBuilder.botaoComprarFontSize ?? 2.w,
       width: 35,
       height: layoutBuilder.botaoComprarHeight ?? 5.w,
-      onPressed: () => {});
+      onPressed: () => controller.publicarSite());
 }

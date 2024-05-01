@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,10 +28,14 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>afiliado_vendas_flutter</title>
   <link rel="manifest" href="manifest.json">
+
+  <div class="flex h-screen animate-pulse flex-col place-content-center place-items-center">
+    <div>Carregando componentes...</div>
+  </div>
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -38,17 +43,52 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .flex {
+      display: flex;
+    }
+
+    .h-screen {
+      height: 100vh;
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .5;
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .place-content-center {
+      place-content: center;
+    }
+
+    .place-items-center {
+      place-items: center;
+    }
+  </style>
 </head>
+
 <body>
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
             appRunner.runApp();
           });
         }
@@ -56,4 +96,5 @@
     });
   </script>
 </body>
+
 </html>
